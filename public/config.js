@@ -1,6 +1,5 @@
 window.FLIGHT_BRIEF_3D_CONFIG = {
-  // Optional Cesium ion token for real terrain + higher quality imagery.
-  // cesiumIonToken: 'paste-token-here',
+  cesiumIonToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3MTdjN2U4ZS0yNGY5LTQ0NzctYjJmMC1jNTRmZjQ3NDI0YzIiLCJpZCI6Mzk5NjQ4LCJpYXQiOjE3NzI4NjY4MDJ9.Q4KpoueD1isXoP_r0RyaK4-WNRVoOPndDWhPk55jrl8',
 
   // Optional custom helicopter model path.
   // Drop a Huey-compatible .glb or .gltf into public/models/ and point here.
