@@ -1,0 +1,155 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #e2e8f0;
+  background: #020617;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: #020617;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  overflow: auto;
+  padding: 1.25rem;
+  background: #0f172a;
+  border-right: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin: 0 0 1rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.95rem;
+}
+
+.field span, .details summary {
+  font-weight: 600;
+}
+
+textarea, input {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 0.8rem;
+  background: #020617;
+  color: #e2e8f0;
+  padding: 0.8rem 0.9rem;
+}
+
+textarea {
+  min-height: 11rem;
+  resize: vertical;
+}
+
+.grid.two {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.1rem;
+  background: #facc15;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.details {
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+}
+
+.status {
+  margin: 1rem 0 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.8rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.status.error {
+  color: #fecaca;
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.resolved-list, .timeline-summary {
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+  color: #cbd5e1;
+  white-space: pre-line;
+  line-height: 1.45;
+}
+
+.timeline-summary {
+  padding-left: 0;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.viewer-panel, #cesiumContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.cesium-widget-credits {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(55vh, 1fr);
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  }
+}
