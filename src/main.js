@@ -229,11 +229,13 @@ function setMode(mode) {
   ui.presentationHud.classList.toggle('hidden', !presenting);
   ui.editorModeBtn.classList.toggle('active', !presenting);
   ui.presentModeBtn.classList.toggle('active', presenting);
+  document.body.classList.toggle('presentation-mode', presenting);
   if (presenting && routePoints.length) {
     hydratePresentation(routePoints);
     applyCameraPreset(modeState.selectedView, routePoints, animationState?.smoothedProgress ?? 0);
   }
   setStatus(presenting ? 'Presentation mode ready.' : 'Setup mode ready.');
+  setTimeout(() => viewer.resize(), 50);
 }
 
 async function plotRoute() {

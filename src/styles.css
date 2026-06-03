@@ -21,6 +21,10 @@ body {
     linear-gradient(180deg, #07111f 0%, #020814 100%);
 }
 
+body.presentation-mode {
+  overflow: hidden;
+}
+
 button, input, textarea {
   font: inherit;
 }
@@ -167,11 +171,47 @@ textarea {
   font-weight: 600;
 }
 
-.viewer-stage,
+.viewer-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 #cesiumContainer {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+body.presentation-mode .topbar {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: min(1180px, calc(100vw - 3rem));
+  border-radius: 1.4rem;
+  background: rgba(1, 8, 18, 0.74);
+}
+
+body.presentation-mode .layout {
+  grid-template-columns: 1fr;
+}
+
+body.presentation-mode .viewer-stage {
+  display: grid;
+  place-items: center;
+  padding: 5.5rem 1.5rem 1.5rem;
+}
+
+body.presentation-mode #cesiumContainer {
+  width: min(1280px, 92vw);
+  height: min(760px, 82vh);
+  border-radius: 1.8rem;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(149, 199, 255, 0.16);
 }
 
 #cesiumContainer::after {
@@ -190,6 +230,16 @@ textarea {
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 1rem;
+}
+
+body.presentation-mode .presentation-hud {
+  width: min(1280px, 92vw);
+  height: min(760px, 82vh);
+  left: 50%;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
 }
 
 .presentation-hud.hidden {
@@ -305,6 +355,12 @@ textarea {
   max-width: min(620px, calc(100% - 2rem));
   border-radius: 999px;
   padding: 0.85rem 1rem;
+}
+
+body.presentation-mode .status-banner {
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translateX(-50%);
 }
 
 .status-banner.error {
