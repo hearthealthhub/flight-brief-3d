@@ -22,6 +22,6 @@
 
 ## Finish and ship
 - [x] Build and verify production output
-- [ ] Commit cleanly
-- [ ] Push to GitHub
-- [ ] Update GitHub Pages settings only if needed and practical
+- [x] Commit cleanly
+- [x] Push to GitHub
+- [x] GitHub Pages workflow already existed, no update needed
