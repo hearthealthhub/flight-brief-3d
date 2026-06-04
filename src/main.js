@@ -63,9 +63,10 @@ app.innerHTML = `
       </aside>
 
       <main class="viewer-stage">
-        <div id="cesiumContainer"></div>
+        <div id="presentationWindow" class="presentation-window">
+          <div id="cesiumContainer"></div>
 
-        <div id="presentationHud" class="presentation-hud hidden">
+          <div id="presentationHud" class="presentation-hud hidden">
           <div class="hud-row hud-top">
             <div class="hud-chip hud-flight"><span id="flightBadge">SEATBACK MODE</span></div>
             <div class="hud-chip"><span id="viewBadge">Overview</span></div>
@@ -108,6 +109,7 @@ app.innerHTML = `
                 </div>
               </div>
             </section>
+          </div>
           </div>
         </div>
 
@@ -235,7 +237,10 @@ function setMode(mode) {
     applyCameraPreset(modeState.selectedView, routePoints, animationState?.smoothedProgress ?? 0);
   }
   setStatus(presenting ? 'Presentation mode ready.' : 'Setup mode ready.');
-  setTimeout(() => viewer.resize(), 50);
+  requestAnimationFrame(() => {
+    viewer.resize();
+    viewer.scene.requestRender();
+  });
 }
 
 async function plotRoute() {
